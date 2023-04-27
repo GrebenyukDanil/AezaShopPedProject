@@ -1,0 +1,17 @@
+.productList{
+  width: 100%;
+  max-width: 993px;
+  &__h1{
+    font-size: 64px;
+    margin-bottom: 32px;
+    color: #151B1A;
+    text-align: start;
+  }
+  &__listOfItems{
+    width: 100%;
+    display: flex;
+    row-gap: 20px;
+    column-gap: 24px;
+    flex-wrap: wrap;
+  }
+}
