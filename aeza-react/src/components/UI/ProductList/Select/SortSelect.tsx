@@ -6,11 +6,11 @@ import {useStore} from "effector-react";
 const SortSelect = (props:any) => {
     //создание переменных из сторов
     const listOfSorts:any = useStore($listOfSorts)
-    const sa:any = useStore($typeOfSort)
+
     return (
         
         <div className={classes.sort}>
-            <p><div>{sa}</div></p>
+
             <p>Каталог • Фильтр</p>
             <select onChange={(event:any) => changeTypeOfSort(event.target.value)}>
                 <option disabled value="productName">Сортировка по</option>

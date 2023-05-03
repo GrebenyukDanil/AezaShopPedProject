@@ -1,11 +1,12 @@
-import React, {useEffect} from 'react';
+
+import { Slider} from 'antd';
 import classes from './LeftCategoryMenu.module.scss'
 import {useStore} from "effector-react";
-import {$filtrByAction, $listOfProductsTypes, changeFilterByActionType, listOfProductsSort } from "../../effector";
+import {$filtrByAction, $listOfProductsTypes, $minMaxPrice, changeFilterByActionType,  changeMaxPrice,  changeMinMaxPriceSlider,  changeMinPrice, listOfProductsSort, resetProductList } from "../../effector";
 const LeftCategoryMenu = () => {
     const allCategories = useStore($listOfProductsTypes)
     const filtrCategories =useStore($filtrByAction)
-
+    const minMaxPrice = useStore($minMaxPrice)
 
     return (
         <div className={classes.leftMenu}>
@@ -22,12 +23,25 @@ const LeftCategoryMenu = () => {
             <p className={classes.leftMenu__title}>Фильтры</p>
             {<ul className={classes.leftMenu__ul} >
                 {[...filtrCategories].map((category:any) =>
-                <li>
+                <li className={classes.leftMenu__filterLi}>
                     <input type="checkbox" checked= {category.value} onClick={(event:any) => changeFilterByActionType(category)}></input>
                     <label >{category.title}</label>
                 </li>
                 )}
             </ul>}
+            <p className={classes.leftMenu__title}>цена продукции</p>
+            <div className={classes.leftMenu__price}>
+            <div className={classes.leftMenu__priceInputs}>
+                    <input value={minMaxPrice.minPrice} type="number" onChange={(event:any) =>changeMinPrice(event.target.value)}/>
+                    <input value={minMaxPrice.maxPrice} type="number" onChange={(event:any) =>changeMaxPrice(event.target.value)}/>
+                </div>
+                <Slider range min={100} max={3000} defaultValue={[minMaxPrice.minPrice, minMaxPrice.maxPrice]} reverse={false} onChange={(event:any)=> changeMinMaxPriceSlider(event)}/>
+            </div>
+               
+                
+            
+
+            <button className={classes.leftMenu__cleanBtn} onClick={(event) => resetProductList()}>Отчистить фильтры</button>
         </div>
     );
 };
