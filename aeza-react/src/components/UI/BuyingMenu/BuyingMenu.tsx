@@ -1,10 +1,13 @@
-import React from 'react';
-import ProductCard from "../ProductCard/ProductCard";
-
-const BuyingMenu = () => {
+import ProductList from "../ProductList/ProductList";
+import LeftCategoryMenu from "../LeftCategoryMenu/LeftCategoryMenu";
+import classes from "./BuyingMenu.module.scss"
+const BuyingMenu = (listOfProducts:any) => {
     return (
-        <div>
-            <ProductCard></ProductCard>
+        <div className={classes.buyingMeny}>
+            <LeftCategoryMenu></LeftCategoryMenu>
+            <ProductList >
+
+            </ProductList>
         </div>
     );
 };

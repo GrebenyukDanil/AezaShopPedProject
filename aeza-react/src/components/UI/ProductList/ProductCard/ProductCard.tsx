@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './ProductCard.module.scss'
 
 
+
 const ProductCard = (props:any) => {
     return (
         <div className={classes.productCard}>
