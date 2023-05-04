@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+
 import './App.css';
-import ProductCard from "./components/UI/ProductList/ProductCard/ProductCard";
-import ProductList from "./components/UI/ProductList/ProductList";
+import BlueContant from './components/UI/BlueContant/BlueContant';
 import BuyingMenu from "./components/UI/BuyingMenu/BuyingMenu";
+import  Header from './components/UI/Header/Header';
 
 const list:any = [
 
@@ -12,9 +12,10 @@ function App() {
     return (
 
     <div className="App">
+        
+        <Header></Header>
+        <BlueContant></BlueContant>
         <BuyingMenu></BuyingMenu>
-
-
     </div>
 
   );
