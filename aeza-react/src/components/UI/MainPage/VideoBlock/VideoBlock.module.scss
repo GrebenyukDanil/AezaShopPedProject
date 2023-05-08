@@ -1,0 +1,18 @@
+.videoBlock{
+    margin: 0 auto;
+    max-width: 1340px;
+    display: flex;
+    flex-direction: column;
+}
+h1{
+    text-align: start;
+    font-weight: 700;
+    font-size: 70px;
+    color: #000E1A;
+    margin-bottom: 50px;
+}
+iframe{
+    align-self: center;
+    width: 1000px;
+    height: 500px;
+}
