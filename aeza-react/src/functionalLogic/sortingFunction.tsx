@@ -40,9 +40,9 @@ export function productSort(sortInfo:any){
       //Вывод и сортировка окончательная кек
     // console.log(filteredProductList)
     //Вывод и сортировка окончательная кек
-    console.log(filteredProductList)
+
     filteredProductList = filteredProductList.filter(obj => obj.productPrice>= minMaxPrice.minPrice && obj.productPrice <= minMaxPrice.maxPrice); // фильтруем объекты по цене
-    console.log(filteredProductList)
+  
     return filteredProductList
       
 }

@@ -1,4 +1,17 @@
-export let productListPerem = [
+export interface IproductList{
+    id: number;
+    productName: string;
+    productPrice: number;
+    productPhoto: string;
+    productPhotoAlt: string;
+    productDescription: string;
+    buyCount: number;
+    inStock: boolean;
+    type: string;
+    action: boolean;
+    onSale: boolean;
+}
+export let productListPerem:IproductList[] = [
     {
         id: 1,
         productName: "футболка #1",

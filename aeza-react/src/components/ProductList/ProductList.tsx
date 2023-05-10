@@ -1,9 +1,9 @@
-import React from 'react';
-import ProductCard from "./ProductCard/ProductCard";
+
 import classes from "./ProductList.module.scss"
-import SortSelect from "./Select/SortSelect";
+import SortSelect from "../SortSelect/SortSelect";
 import {useStore} from "effector-react";
 import {$listOfProducts} from "../../effector";
+import SmallProductCard from '../SmallProductCard/SmallProductCard';
 
 
 
@@ -20,10 +20,8 @@ const ProductList = (props:any) => {
                 <h1 className={classes.productList__h1}>каталог товаров</h1>
                 <div className={classes.productList__listOfItems}>
                     {
-
                         listProd.map((product:any) =>
-                        <ProductCard productInfo={product} key={product.id}></ProductCard>
-
+                        <SmallProductCard productInfo={product} key={product.id}></SmallProductCard>
                     )}
 
                 </div>

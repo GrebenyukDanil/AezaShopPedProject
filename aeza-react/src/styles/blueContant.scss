@@ -1,0 +1,24 @@
+.aeza-info-block{
+    background: #DDFBFF;
+    border-radius: 32px;
+    display: flex;
+    justify-content: space-between;
+    padding: 60px;
+    margin-bottom: 80px;
+    &__content{
+        display: flex;
+        flex-direction: column;
+    }
+    &__title-text{
+        max-width: 533px;
+        margin-bottom: 24px;
+    }
+    &__desc-text{
+        max-width: 533px;
+        margin-bottom: 48px;
+    }
+    &__img{
+        width: 409px;
+        height: 429px;
+    }
+}

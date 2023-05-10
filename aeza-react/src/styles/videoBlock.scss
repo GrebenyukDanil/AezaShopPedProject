@@ -1,0 +1,92 @@
+.videoBlock{
+    margin-bottom: 90px;
+    &__h1{
+        margin-bottom: 50px;
+    }
+    &__video{
+        width: 817px;
+        height: 480px;
+        border-radius: 18px;
+    }
+    &__video-content{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 170px;
+    }
+
+}
+hr {
+    margin-bottom: 70px;
+}
+.point-block{
+    display: flex;
+    gap: 22px;
+    margin-bottom: 50px;
+    &__img{
+        align-self: start;
+    }
+    &__fp{
+        margin-bottom: 10px;
+    }
+}
+
+.about{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 64px;
+    &__p{
+        margin-top: 20px;
+    }
+}
+.info-card{
+    position: relative;
+    overflow: hidden;
+    height: 514px;
+    background: #F4F4F4;
+    border-radius: 32px 32px 6px 6px;
+    padding: 64px;
+    margin-bottom: 20px;
+    &__h1{
+        margin-bottom: 40px;
+    }
+    &__p{
+        margin-bottom: 50px;
+    }
+    &__button{
+        float:left
+    }
+    &__img{
+        mix-blend-mode: exclusion;
+        position: absolute;
+        top: -5%;
+        left: -1%;
+    }
+    &__content{
+        position: relative;
+        z-index: 3;
+    }
+}
+.about-quality{
+    overflow: hidden;
+    width: 483px;
+    height: 400px;
+    padding: 39px 0 0 0;
+    background: #F4F4F4;
+    border-radius: 6px 6px 32px 32px;
+    p{
+        text-align: center;
+    }
+    &__p1{
+        margin-bottom: 12px;
+    }
+    &__p2{
+        margin-bottom: 20px;
+    }
+    &--dlin{
+        width: 837px
+    }
+}
+.just-for-flex{
+    display: flex;
+    justify-content: space-between;
+}

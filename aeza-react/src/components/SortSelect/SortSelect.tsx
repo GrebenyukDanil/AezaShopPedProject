@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import classes from './SortSelect.module.scss'
-import {$listOfSorts,$typeOfSort,changeTypeOfSort,} from "../../../effector";
+
 
 import {useStore} from "effector-react";
+import { $listOfSorts, changeTypeOfSort } from '../../effector';
 const SortSelect = (props:any) => {
     //создание переменных из сторов
     const listOfSorts:any = useStore($listOfSorts)

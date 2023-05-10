@@ -1,28 +1,25 @@
 
 import './App.css';
-import BuyingMenu from "./components/UI/BuyingMenu/BuyingMenu";
-import  Header from './components/UI/Header/Header';
 import { Routes, Route} from 'react-router-dom';
-import MainPage from './components/UI/MainPage/MainPage';
-import ProductFullCard from './components/UI/ProductFullCard/ProductFullCard';
-const list:any = [
+import MainPage from './pages/MainPage/MainPage';
+import Login from './components/Login/Login';
+import CatalogPage from './pages/CatalogPage/CatalogPage';
+import ProductFullCard from './components/ProductFullCard/ProductFullCard';
+import './styles/defaultStyles.scss'
 
-]
 function App() {
 
     return (
 
     <div className="App">
-        
-        <Header></Header>
-        
-        
+      <div className="container">
         <Routes>
-          <Route path='/' element={<MainPage></MainPage>}></Route>
-          <Route path='/catalog' element={<BuyingMenu></BuyingMenu>}></Route>
-          <Route path='/catalog/:id' element={<ProductFullCard></ProductFullCard>}></Route>
+            <Route path='/' element={<MainPage></MainPage>}></Route>
+            <Route path='/catalog' element={<CatalogPage></CatalogPage>}></Route>
+            <Route path='/catalog/:id' element={<ProductFullCard></ProductFullCard>}></Route>
+            <Route path='/login' element={<Login></Login>}></Route>
         </Routes>
-
+      </div>
     </div>
 
   );

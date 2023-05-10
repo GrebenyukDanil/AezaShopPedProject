@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
-import { productListPerem } from "../../../functionalLogic/prodListFile";
+
 import classes from "./ProductFullCard.module.scss"
+import { productListPerem } from "../../functionalLogic/prodListFile";
 const ProductFullCard = () => {
     const productId:any = useParams().id
     const productInfo:any = productListPerem.find(product => product.id === parseInt(productId));
