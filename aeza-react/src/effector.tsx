@@ -2,8 +2,10 @@ import { createStore, createEvent, sample } from "effector";
 import { validateForm } from "./functionalLogic/validateForm";
 import { IproductList, productListPerem } from "./functionalLogic/prodListFile";
 import { productSort } from "./functionalLogic/sortingFunction";
+import { checkForLogin } from "./functionalLogic/accountsData";
 
 //Интерфейсы
+
 export interface IFormDataErrors {
     email?: string;
     password?: string;
@@ -31,6 +33,8 @@ export interface IminMaxPrice {
     maxPrice: number;
 }
 //---------------ивенты---------------
+export const login = createEvent<any>()
+export const changeAuth = createEvent<any>()
 export const formChanged = createEvent<HTMLInputElement>()
 export const SortListOfProducts = createEvent<IproductList[]>()
 export const resetProductList = createEvent<void>()
@@ -56,6 +60,21 @@ export const $LoginFormData = createStore<ILoginFormData>({
         [value.name]: value.value
     })
 })
+//Стор для авторизации
+export const $AuthInfo = createStore({
+    login: "",
+    password: "",
+    auth: false
+}).on(changeAuth, (state, value) => value)
+
+sample({
+    clock: login,
+    source: [$LoginFormData],
+    fn: (value) => (checkForLogin(value)),
+    target: changeAuth
+})
+
+
 //Стор для хранения списка продукции
 export const $listOfProducts = createStore<IproductList[]>(productListPerem)
     .on(SortListOfProducts, (state, value) => value)
@@ -161,9 +180,17 @@ sample({
     fn: (value) => (validateForm(value)),
 
 })
+export interface Isdaasd{
+    ProductsSortType: string,
+    typeOfSort: string,
+    listOfProducts: IproductList[],
+    filtrByAction: IfiltrByAction[],
+    minMaxPrice: IminMaxPrice
+
+}
 sample({
     clock: [listOfProductsSort, changeTypeOfSort, changeFilterByActionType, changeMinPrice, changeMaxPrice, changeMinMaxPriceSlider],
-    source: [$ProductsSortType, $typeOfSort, $listOfProducts, $filtrByAction, $minMaxPrice],
+    source: {ProductsSortType:$ProductsSortType, typeOfSort:$typeOfSort, listOfProducts:$listOfProducts, filtrByAction:$filtrByAction, minMaxPrice:$minMaxPrice},
     fn: (value) => (productSort(value)),
     target: SortListOfProducts
 })

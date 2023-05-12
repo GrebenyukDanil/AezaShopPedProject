@@ -1,6 +1,7 @@
 import tShirt from './tShrirt.svg'
 import '../../styles/blueContant.scss'
-const BlueContant = () => {
+import { Link } from 'react-router-dom';
+const BlueContant = (props:any) => {
     return (
         <div className="aeza-info-block">
                 <div className="aeza-info-block__content">
@@ -10,9 +11,12 @@ const BlueContant = () => {
                     <p className="aeza-info-block__desc-text default-text">
                         виртуальные серверы на мощных <br /> процессорах AMD и NVMe SSD накопителях
                     </p>
-                    <button className="aeza-info-block__button black-button">
-                        смотреть каталог продукции
-                    </button>
+                    <Link className='link' to={props.link}>
+                        <button className="aeza-info-block__button black-button">
+                            {props.btnText}
+                        </button>
+                    </Link>
+                    
                 </div>
                 <img className="aeza-info-block__img" src={tShirt} alt="" />
             </div>

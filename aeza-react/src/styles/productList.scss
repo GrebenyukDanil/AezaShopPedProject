@@ -1,0 +1,11 @@
+.productList{
+    width: 100%;
+    max-width: 993px;
+    &__listOfItems{
+      width: 100%;
+      display: flex;
+      row-gap: 20px;
+      column-gap: 24px;
+      flex-wrap: wrap;
+    }
+  }

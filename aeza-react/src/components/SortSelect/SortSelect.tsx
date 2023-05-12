@@ -1,7 +1,4 @@
-import React, {useEffect} from 'react';
-import classes from './SortSelect.module.scss'
-
-
+import "../../styles/sortSelect.scss"
 import {useStore} from "effector-react";
 import { $listOfSorts, changeTypeOfSort } from '../../effector';
 const SortSelect = (props:any) => {
@@ -10,7 +7,7 @@ const SortSelect = (props:any) => {
 
     return (
         
-        <div className={classes.sort}>
+        <div className="sort">
 
             <p>Каталог • Фильтр</p>
             <select onChange={(event:any) => changeTypeOfSort(event.target.value)}>

@@ -1,4 +1,3 @@
-import classes from './Header.module.scss'
 import logoImg from "./logo.svg"
 import { Link } from "react-router-dom"
 import '../../styles/header.scss'

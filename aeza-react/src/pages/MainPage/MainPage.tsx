@@ -8,8 +8,10 @@ import Header from "../../components/Header/Header";
 const MainPage = () => (
     <>
         <Header></Header>
-        <BlueContant></BlueContant>
+        <BlueContant link="/catalog" btnText="смотреть каталог продукции"></BlueContant>
+
         <VideoBlock></VideoBlock>
+        <Header></Header>
     </>
 
 );

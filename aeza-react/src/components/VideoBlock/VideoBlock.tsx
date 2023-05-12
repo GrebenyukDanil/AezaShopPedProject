@@ -38,7 +38,7 @@ const VideoBlock = () => {
                     </li>
                 </ul>
             </div>
-            <hr />
+          
             <div className='videoBlock__about about'>
                 <h1 className='default-big-text about__h1'>
                     почему одежда <br /> аéзы, крута?
