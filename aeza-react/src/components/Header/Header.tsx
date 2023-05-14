@@ -1,7 +1,12 @@
 import logoImg from "./logo.svg"
 import { Link } from "react-router-dom"
-import '../../styles/header.scss'
+import './header.scss'
+import { useStore } from "effector-react";
+import { $AuthInfo, logout } from "../../effector/login";
+
 const Header = () => {
+    const authData = useStore($AuthInfo)
+  
     return (
         <div className="header">
             <ul className="header__ul">
@@ -9,7 +14,14 @@ const Header = () => {
                 <li className="header__li default-text"><Link className="link" to="/catalog">каталог</Link></li>
             </ul>
             <img src={logoImg} alt="" />
-            <p className='header__login-link default-text'><Link className='link' to="/login">Вход / Регистрация</Link> </p>
+            {authData.auth ?
+                <div style={{display: "flex", gap: "10px", alignItems:"center"}}>
+                    <p>{authData.email}</p> <button className="btn-small" onClick={(event)=> logout(event)}>Выход</button>
+                </div>
+                :
+                <Link className='link' to="/login">Вход / Регистрация</Link>
+            }
+
         </div>
     );
 };

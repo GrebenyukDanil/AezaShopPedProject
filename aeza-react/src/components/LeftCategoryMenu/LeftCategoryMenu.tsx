@@ -2,47 +2,48 @@
 import { Slider} from 'antd';
 
 import {useStore} from "effector-react";
-import '../../styles/leftCategoryMenu.scss'
-import {$filtrByAction, $listOfProductsTypes, $minMaxPrice, changeFilterByActionType,  changeMaxPrice,  changeMinMaxPriceSlider,  changeMinPrice, listOfProductsSort, resetProductList } from "../../effector";
+import './leftCategoryMenu.scss'
+import { $filtrByAction, $listOfProductsTypes, $minMaxPrice, changeFilterByActionType, changeMaxPrice, changeMinMaxPriceSlider, changeMinPrice, listOfProductsSort, resetProductList } from '../../effector/sorts';
+
 const LeftCategoryMenu = () => {
     const allCategories = useStore($listOfProductsTypes)
     const filtrCategories =useStore($filtrByAction)
     const minMaxPrice = useStore($minMaxPrice)
 
     return (
-        <div className="leftMenu">
-            <p className="leftMenu__title small-strong-text">категории</p>
-            {<ul className="leftMenu__ul">
-                {[...allCategories].map((category) =>
+        <div className="left-menu">
+            <p className="left-menu small-strong-text">категории</p>
+            {<ul className="left-menu">
+                {allCategories.map((category) =>
                 <li>
-                    <div className="leftMenu__category" onClick={(event:any)=> listOfProductsSort(category.value)}>
+                    <div className="left-menu__category" onClick={()=> listOfProductsSort(category.value)}>
                         {category.title}
                     </div>
                 </li>
                 )}
             </ul>}
-            <p className="leftMenu__title small-strong-text">фильтры</p>
-            {<ul className={"leftMenu__ul"} >
-                {[...filtrCategories].map((category:any) =>
-                <li className="leftMenu__filterLi">
-                    <input type="checkbox" checked= {category.value} onClick={(event:any) => changeFilterByActionType(category)}></input>
+            <p className="left-menu__title small-strong-text">фильтры</p>
+            {<ul className={"left-menu__ul"} >
+                {filtrCategories.map((category) =>
+                <li className="left-menu__filter-li">
+                    <input type="checkbox" checked= {category.value} onClick={() => changeFilterByActionType(category)}></input>
                     <label >{category.title}</label>
                 </li>
                 )}
             </ul>}
-            <p className="leftMenu__title small-strong-text">цена продукции</p>
-            <div className="leftMenu__price">
-            <div className="leftMenu__priceInputs">
-                    <input value={minMaxPrice.minPrice} type="number" onChange={(event:any) =>changeMinPrice(event.target.value)}/>
-                    <input value={minMaxPrice.maxPrice} type="number" onChange={(event:any) =>changeMaxPrice(event.target.value)}/>
+            <p className="lleft-menu__title small-strong-text">цена продукции</p>
+            <div className="left-menu__price">
+            <div className="left-menu__price-inputs">
+                    <input value={minMaxPrice.minPrice} type="number" onChange={(event) =>changeMinPrice(event.target.value)}/>
+                    <input value={minMaxPrice.maxPrice} type="number" onChange={(event) =>changeMaxPrice(event.target.value)}/>
                 </div>
-                <Slider range min={100} max={3000} defaultValue={[minMaxPrice.minPrice, minMaxPrice.maxPrice]} reverse={false} onChange={(event:any)=> changeMinMaxPriceSlider(event)}/>
+                <Slider range min={100} max={3000} defaultValue={[minMaxPrice.minPrice, minMaxPrice.maxPrice]} reverse={false} onChange={(event)=> changeMinMaxPriceSlider(event)}/>
             </div>
                
                 
             
 
-            <button className="leftMenu__cleanBtn" onClick={(event) => resetProductList()}>Отчистить фильтры</button>
+            <button className="left-menu__clean-btn" onClick={() => resetProductList()}>Отчистить фильтры</button>
         </div>
     );
 };

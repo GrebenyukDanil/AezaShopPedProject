@@ -1,4 +1,5 @@
-import { IFormDataErrors, ILoginFormData } from "../effector";
+import { IFormDataErrors, ILoginFormData } from "../effector/login";
+
 
 export function validateForm(formData:ILoginFormData) {
 

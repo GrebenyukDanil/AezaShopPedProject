@@ -1,35 +1,38 @@
 import { Link } from 'react-router-dom';
-import '../../styles/videoBlock.scss'
+import './videoBlock.scss'
 import firstImg from './first.svg'
 import secondImg from './second.svg'
 import thirdImg from './third.svg'
 import background from './background.png'
 import qualityImg from './quality.png'
 import aezapng from './aeza-dimond.png'
+import { useStore } from 'effector-react';
+import { $AuthInfo } from '../../effector/login';
 const VideoBlock = () => {
+    const authInfo = useStore($AuthInfo)
     return (
-        <div className="videoBlock">
-            <h1 className='videoBlock__h1 default-big-text'>
+        <div className="video-block">
+            <h1 className='video-block__h1 default-big-text'>
                 посмотрите промо-ролик <br /> о нашей одежде
             </h1>
-            <div className='videoBlock__video-content'>
-                <iframe className='videoBlock__video' width="560" height="315" src="https://www.youtube.com/embed/PdJq-dAQr-Y" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
+            <div className='video-block__video-content'>
+                <iframe className='video-block__video' width="560" height="315" src="https://www.youtube.com/embed/PdJq-dAQr-Y" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ></iframe>
                 <ul>
-                    <li className='videoBlock__point-block point-block'>
+                    <li className='video-block__point-block point-block'>
                         <img className='point-block__img' src={firstImg} alt="first" />
                         <div>
                             <p className='point-block__fp small-strong-text'>Именитый бренд, который<br></br>достойно носить</p>
                             <p className='point-block__sp small-grey-text'>web-защита, которая реально работает.<br />прозрачная фильтрация и демократичные цены</p>
                         </div>
                     </li>
-                    <li className='videoBlock__point-block point-block'>
+                    <li className='video-block__point-block point-block'>
                         <img className='point-block__img' src={secondImg} alt="first" />
                         <div>
                             <p className='point-block__fp small-strong-text'>Именитый бренд, который<br></br>достойно носить</p>
                             <p className='point-block__sp small-grey-text'>web-защита, которая реально работает.<br />прозрачная фильтрация и демократичные цены</p>
                         </div>
                     </li>
-                    <li className='videoBlock__point-block point-block'>
+                    <li className='video-block__point-block point-block'>
                         <img className='point-block__img' src={thirdImg} alt="first" />
                         <div>
                             <p className='point-block__fp small-strong-text'>Именитый бренд, который<br></br>достойно носить</p>
@@ -39,7 +42,7 @@ const VideoBlock = () => {
                 </ul>
             </div>
           
-            <div className='videoBlock__about about'>
+            <div className='video-block__about about'>
                 <h1 className='default-big-text about__h1'>
                     почему одежда <br /> аéзы, крута?
                 </h1>
@@ -56,9 +59,10 @@ const VideoBlock = () => {
                     <p className='default-text info-card__p'>
                         виртуальные серверы на мощных <br /> процессорах AMD и NVMe SSD накопителях
                     </p>
-                    <Link to="/login">
+                    {authInfo.auth ? <></> : <Link to="/login">
                         <button className='black-button info-card__button'>войти в аккаунт</button>
-                    </Link>
+                    </Link>}
+                    
                 </div>
 
             </div>

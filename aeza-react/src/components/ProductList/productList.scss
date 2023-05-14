@@ -1,11 +1,14 @@
 .productList{
     width: 100%;
     max-width: 993px;
-    &__listOfItems{
+    &__list-of-items{
       width: 100%;
       display: flex;
       row-gap: 20px;
       column-gap: 24px;
       flex-wrap: wrap;
+    }
+    h1 {
+      margin-bottom: 30px;
     }
   }

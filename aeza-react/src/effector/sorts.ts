@@ -1,20 +1,12 @@
 import { createStore, createEvent, sample } from "effector";
-import { validateForm } from "./functionalLogic/validateForm";
-import { IproductList, productListPerem } from "./functionalLogic/prodListFile";
-import { productSort } from "./functionalLogic/sortingFunction";
-import { checkForLogin } from "./functionalLogic/accountsData";
+
+import { productSort } from "../functionalLogic/sortingFunction";
+import { IproductList, productListPerem } from "../consts/prodListFile";
+
 
 //Интерфейсы
 
-export interface IFormDataErrors {
-    email?: string;
-    password?: string;
-}
-export interface ILoginFormData {
-    email: string;
-    password: string;
-    errors: IFormDataErrors
-}
+
 export interface IlistOfSort {
     title: string;
     value: string;
@@ -33,46 +25,18 @@ export interface IminMaxPrice {
     maxPrice: number;
 }
 //---------------ивенты---------------
-export const login = createEvent<any>()
-export const changeAuth = createEvent<any>()
-export const formChanged = createEvent<HTMLInputElement>()
+
 export const SortListOfProducts = createEvent<IproductList[]>()
 export const resetProductList = createEvent<void>()
 export const changeTypeOfSort = createEvent<string>()
 export const listOfProductsSort = createEvent<string>()
 export const changeFilterByActionType = createEvent<IfiltrByAction>()
-export const changeMinPrice = createEvent<IminMaxPrice>()
-export const changeMaxPrice = createEvent<IminMaxPrice>()
-export const changeMinMaxPriceSlider = createEvent<IminMaxPrice>()
+export const changeMinPrice = createEvent<string>()
+export const changeMaxPrice = createEvent<string>()
+export const changeMinMaxPriceSlider = createEvent<number[]>()
 
 //---------------сторы---------------
 //Стор для хранения данных с формы авторизации
-export const $LoginFormData = createStore<ILoginFormData>({
-    email: "",
-    password: "",
-    errors: {
-        email: "",
-        password: "",
-    }
-}).on(formChanged, (state, value) => {
-    return ({
-        ...state,
-        [value.name]: value.value
-    })
-})
-//Стор для авторизации
-export const $AuthInfo = createStore({
-    login: "",
-    password: "",
-    auth: false
-}).on(changeAuth, (state, value) => value)
-
-sample({
-    clock: login,
-    source: [$LoginFormData],
-    fn: (value) => (checkForLogin(value)),
-    target: changeAuth
-})
 
 
 //Стор для хранения списка продукции
@@ -174,13 +138,8 @@ export const $minMaxPrice = createStore<IminMaxPrice>(
 })
 
 //---------------Сэмлы---------------
-sample({
-    clock: formChanged,
-    source: $LoginFormData,
-    fn: (value) => (validateForm(value)),
 
-})
-export interface Isdaasd{
+export interface ISortObject{
     ProductsSortType: string,
     typeOfSort: string,
     listOfProducts: IproductList[],
@@ -195,8 +154,6 @@ sample({
     target: SortListOfProducts
 })
 
-
-//как типизировать сложные объекты по типу что выше value
 
 
 

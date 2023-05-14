@@ -1,0 +1,22 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 40px;
+    margin: 20px 0;
+    &__ul{
+        display: flex;
+        gap: 20px;
+    }
+}
+.btn-small{
+    cursor: pointer;
+    width: 90px;
+    height: 30px;
+    background: #000E1A;
+    border-radius: 12px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #FFFFFF;
+    border: none
+}

@@ -1,10 +1,11 @@
 import { useStore } from 'effector-react';
-import { $LoginFormData, formChanged, login } from '../../effector';
-import '../../styles/login.scss'
-import { type } from 'os';
+
+import './login.scss'
+
+import { $LoginFormData, formChanged, login } from '../../effector/login';
 const Login = () => {
     const formInfo: any = useStore($LoginFormData)
-
+    console.log("Для авторизации test@gmail.com:testtest")
     return (
         <div className="login">
             <p className="login__text default-big-text">вход в аккаунт</p>

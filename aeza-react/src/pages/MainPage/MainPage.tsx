@@ -7,11 +7,11 @@ import Header from "../../components/Header/Header";
 
 const MainPage = () => (
     <>
-        <Header></Header>
-        <BlueContant link="/catalog" btnText="смотреть каталог продукции"></BlueContant>
+        <Header />
+        <BlueContant link="/catalog" btnText="смотреть каталог продукции" />
 
-        <VideoBlock></VideoBlock>
-        <Header></Header>
+        <VideoBlock />
+        <Header />
     </>
 
 );

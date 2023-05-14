@@ -1,6 +1,6 @@
 import { useStore } from "effector-react";
-import { useLocation, Navigate } from "react-router-dom";
-import { $AuthInfo } from "../effector";
+import { Navigate } from "react-router-dom";
+import { $AuthInfo } from "../effector/login";
 
 const RequireAuth = ({children} ) =>{
     const auths = useStore($AuthInfo)

@@ -10,6 +10,7 @@ export interface IproductList{
     type: string;
     action: boolean;
     onSale: boolean;
+    salePrice?: number;
 }
 export let productListPerem:IproductList[] = [
     {
@@ -24,6 +25,7 @@ export let productListPerem:IproductList[] = [
         type: "tShirt",
         action: false,
         onSale: true,
+        salePrice: 1000
     },
         {
             id: 2,
@@ -37,7 +39,7 @@ export let productListPerem:IproductList[] = [
             type: "tShirt",
             action: true,
             onSale: true,
-            
+            salePrice: 1000
         },
         {
             id: 3,
@@ -64,6 +66,7 @@ export let productListPerem:IproductList[] = [
             type: "socks",
             action: true,
             onSale: true,
+            salePrice: 1000
         },
         {
             id: 5,
@@ -77,6 +80,7 @@ export let productListPerem:IproductList[] = [
             type: "socks",
             action: false,
             onSale: true,
+            salePrice: 1000
         },
         {
             id: 6,
@@ -103,6 +107,7 @@ export let productListPerem:IproductList[] = [
             type: "shoes",
             action: false,
             onSale: true,
+            salePrice: 1000
         },
         {
             id: 8,
@@ -129,5 +134,6 @@ export let productListPerem:IproductList[] = [
             type: "pants",
             action: false,
             onSale: true,
+            salePrice: 1000
         }
 ]

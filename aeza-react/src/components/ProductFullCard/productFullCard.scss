@@ -1,4 +1,4 @@
-.productFullCard{
+.product-full-card{
     max-width: 1340px;
     width: 100%;
     margin: 0 auto;
@@ -19,12 +19,12 @@
             margin-bottom: 32px;
         }
     }
-    &__productBuy{
+    &__product-buy{
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
-    &__productPrice{
+    &__product-price{
         font-size: 30px;
         color: #151B1A;
         font-weight: 700;
@@ -42,7 +42,7 @@
     &__descr{
         margin-bottom: 8px;
     }
-    &__backLink{
+    &__back-link{
         font-size: 16px;
         line-height: 20px;
         color: #A0A6A6;
